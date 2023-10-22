@@ -38,7 +38,7 @@
       td6.innerText = ele.mobile;
       if(ele.exp > 5){
         td7.innerText = "Senior";
-      }else if(ele.exp > 2 && ele.exp < 5){
+      }else if(ele.exp >= 2 && ele.exp < 5){
         td7.innerText = "Junior";
       }else if(ele.exp <= 1){
         td7.innerText = "Trainee";

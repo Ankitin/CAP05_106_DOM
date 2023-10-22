@@ -38,7 +38,7 @@ myForm.addEventListener("submit", function(e){
     td6.innerText = ele.mobile;
     if(ele.exp > 5){
       td7.innerText = "Senior";
-    }else if(ele.exp > 2 && ele.exp < 5){
+    }else if(ele.exp >= 2 && ele.exp < 5){
       td7.innerText = "Junior";
     }else if(ele.exp <= 1){
       td7.innerText = "Trainee";
@@ -47,4 +47,8 @@ myForm.addEventListener("submit", function(e){
     tr.append(td1,td2,td3,td4,td5,td6,td7,td8);
     tbody.append(tr);
   })
+});
+
+array.forEach(element => {
+  
 });
