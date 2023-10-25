@@ -20,11 +20,19 @@
         this.balance = balance;
 
         this.depositeAmount = function(amount) {
-            this.balance+=amount;
+            if(amount > 0) {
+                this.balance+=amount;
+            }else {
+                console.log("invalid deposit amount")
+            }
         }
 
         this.withdrawAmount = function(amount) {
-            this.balance-=amount;
+            if(this.balance >= amount) {
+                this.balance-=amount;
+            }else {
+                console.log("insuffficent amount");
+            }
         }
 
         this.checkBalance = function() {
