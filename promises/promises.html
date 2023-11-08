@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PROMISES</h1>
+</body>
+</html>
+<script>
+    let doc = true;
+    let myprs = new Promise(function(resolve, reject){
+        setTimeout(function(){
+            if(doc){
+                const data = [
+                    {id: 1, name:"ankit"},
+                    {id: 2, name:"ankit2"}
+                ]
+                resolve(data);
+            }else{
+                reject({message: "invalid text"});
+            }
+        });
+    },3000)
+    console.log(myprs)
+    myprs.then(function(result){
+        console.log(result);
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+    .finally(function(){
+        console.log(``)
+    })
+</script>

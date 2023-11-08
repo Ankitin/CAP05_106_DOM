@@ -9,3 +9,52 @@
     
 </body>
 </html>
+<script>
+    function Vehicle(brand, model, speed, fuelType) {
+        this.Brand = brand;
+        this.Model = model;
+        this.Speed = speed;
+        this.FuelType = fuelType;
+    }
+    Vehicle.prototype.accelerate = function() {
+        
+    }
+    Vehicle.prototype.break = function() {
+
+    }
+    Vehicle.prototype.refuel = function() {
+        console.log("Tank is refueling");
+    }
+    
+    function Car(brand, model, speed, fuelType, wheels) {
+        Vehicle.call(this, brand, model, speed, fuelType);
+        this.Wheels = wheels;
+        Object.setPrototypeOf(Car.prototype, Vehicle.prototype)
+    }
+    Car.prototype.honk = function() {
+        console.log("wroom wroom");
+    }
+
+    function Aeroplane(brand, model, speed, fuelType, numOfEngines, hasLandingGears) {
+        Vehicle.call(this, brand, model, speed, fuelType);
+        this.Engines = numOfEngines;
+        this.hasLandingGears = hasLandingGears;
+        Object.setPrototypeOf(Aeroplane.prototype, Vehicle.prototype)
+    }
+    Aeroplane.prototype.takeOff = function() {
+        console.log("The Airplane is taking Off");
+    }
+
+    let Koniczek = new Car("Koniczek", "K20", 400, "petrol", 4 );
+    Koniczek.accelerate();
+    Koniczek.break();
+    Koniczek.refuel();
+    Koniczek.honk();
+    
+    let A$PsPlane = new Aeroplane("A$PsPlane", "K50" , 1200, "Jet Fuel", 4, true);
+    A$PsPlane.accelerate();
+    A$PsPlane.break();
+    A$PsPlane.refuel();
+    A$PsPlane.takeOff();
+
+</script>

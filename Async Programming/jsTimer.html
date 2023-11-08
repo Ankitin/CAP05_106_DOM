@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Timer</title>
+    <style>
+        #parent {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="hrs">0</div>
+        <div id="min">0</div>
+        <div id="sec">0</div>
+    </div>
+        <button id="start" onclick="start()">Start</button>
+        <button id="reset" onclick="reset()">Reset</button>
+        
+</body>
+</html>
+<script>
+    let hours = document.getElementById('hrs');
+    let minutes = document.getElementById('min');
+    let seconds = document.getElementById('sec');
+    let start = document.getElementById('start');
+    let reset = document.getElementById('reset');
+
+    function reset() {
+        running = false;
+        clearInterval(timer);
+        seconds = 0;
+        updateTime();
+        run.innerHTML = running;
+    }
+    function updateTime(){
+        if(running== true){
+            seconds++;
+        }
+        display.innerHTML = seconds;
+    }
+</script>
