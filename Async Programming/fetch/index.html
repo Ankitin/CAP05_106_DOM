@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+    <style>
+        #root{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+            padding: 10px;
+            margin: 10px;
+        }
+        .user-card{
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+</body>
+</html>
+<script>
+    let rootElement = document.getElementById('root');
+    fetch('https://reqres.in/api/users?page=2')
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function (resObj) {
+        console.log(resObj)
+        printData(resObj.data);
+    })
+    .catch(function (error) {
+        console.error("err");
+    })
+    function printData(data){
+        data.forEach(function(item){
+            let userCard = document.createElement('div');
+            userCard.className = 'user-card';
+            let userImage = document.createElement('img');
+            userImage.src = item.avatar;
+            let userName = document.createElement('p');
+            userName.textContent = item.first_name +' ' + item.last_name;
+            let userEmail = document.createElement('p');
+            userEmail.textContent = item.email;
+            let userId = document.createElement('p');
+            userId.textContent = item.id
+            userCard.append(
+                userImage,
+                userName,
+                userEmail,
+                userId);
+            rootElement.append(userCard);
+        })
+    }
+    // fetch('https://reqres.in/api/users?page=2')
+    // .then((response) => response.json())
+    // .then((res) => {
+    //     // console.log(res);
+    //     console.log(res.data);
+    // })
+    // .catch((err) => {
+    //     console.log("sdfghjkjhgfd");
+    // })
+</script>
